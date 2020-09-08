@@ -1,15 +1,14 @@
 <template>
   <MList :headers="headers"
-         :items="items"
+         :items="filteredItems"
          :title="title"
-         @filter="filter"
-         @newItem="newItem"
-         @editItem="editItem"
-         @deleteItem="deleteItem"
+         :collection="collection"
+
   >
+    <!--uncomment this for customize actions
     <template #actions="{item}">
       {{item.id}}
-    </template>
+    </template>-->
   </MList>
 </template>
 
@@ -39,25 +38,11 @@
       ]
     }),
     computed: {
-      items() {
+      filteredItems() {
         return this.$store.getters[this.collection + '/filteredItems']
       }
     },
-    methods: {
-      newItem(){
-        this.$router.push(this.collection + '/new')
-      },
-      editItem(id) {
-        this.$router.push(this.collection + '/edit/' + id )
 
-      },
-      deleteItem(id) {
-        this.$store.dispatch(this.collection + '/removeItem', id)
-      },
-      filter(v) {
-        this.$store.commit(this.collection + '/setFilterKey', v)
-      }
-    }
   }
 </script>
 

@@ -35,20 +35,18 @@
   export default {
     name: "BookForm",
     data: () => ({
-      title: 'Add New Book',
-      id: null,
-      item: {},
       selectOptions: ['Web Development', 'Networking', 'Security', 'Operating Systems', 'Crypto'],
       rules: [
         value => !value || value.size < 2000000 || 'Avatar size should be less than 2 MB!',
       ],
     }),
-    created() {
-      this.id = this.$route.params.id;
-      if( this.id) {
-        this.item =this.$store.getters["books/findById"](this.id)
-        this.title = 'Edit Book'
-      }
+    computed: {
+      id(){ return this.$route.params.id},
+
+      title() { return this.id ? 'Edit Item' : 'Create Item'},
+      // TODO : issue when refresh an error happens
+      // TODO : cause should be fetch books before execute findByID
+      item(){ return this.id ? this.$store.getters['books/findById'](this.id) : {} }
     },
     methods: {
       submit(){
@@ -56,8 +54,7 @@
 				this.toPreviousPage();
       },
       update(){
-        this.$store.dispatch("books/updateItem")(this.item);
-				this.toPreviousPage();
+        this.$store.dispatch("books/updateItem", this.item);
       },
       save(){
         this.$store.dispatch("books/addItem", this.item)
