@@ -35,6 +35,12 @@ const actions = {
     let items = state.all;
     // replace old item with its new value
     commit('setItems', items);
+  },
+  async removeItem({commit, state}, id) {
+    let item = ( await axios.delete(`${BASE_URL}/books/${id}`)).data
+    let items = state.all.filter(item => item.id != id);
+    // replace old item with its new value
+    commit('setItems', items);
   }
 }
 

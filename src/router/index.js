@@ -6,7 +6,7 @@ const Home = () => import('@/views/Home')
 const Profile = () => import('@/components/user/Profile')
 const Signup = () => import('@/components/user/Signup')
 const Signin = () => import('@/components/user/Signin')
-
+const BooksView = () => import('@/views/BooksView')
 Vue.use(VueRouter)
 
   const routes = [
@@ -31,7 +31,7 @@ Vue.use(VueRouter)
     {
       path: '/books',
       name: 'BookList',
-      component: () => import('@/components/BookList')
+      component: BooksView
     },
     {
       path: '/books/edit/:id',

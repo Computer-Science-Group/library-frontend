@@ -37,15 +37,6 @@
       "category": "javascript"
     },
     {
-      "id": 5,
-      "image": "AWS-Certified-SysOps-Administrator-Practice-Tests.jpg",
-      "title": "AWS Certified SysOps Administrator Practice Tests",
-      "author": "Ben Piper, Sara Perrott",
-      "isbn": "1119622727",
-      "lang": "English",
-      "category": "Certification"
-    },
-    {
       "title": "Micro Frontends in Action",
       "isbn": "978-1617296871",
       "author": " Michael Geers",
@@ -66,6 +57,14 @@
       "lang": "English",
       "category": "Networking",
       "id": 8
+    },
+    {
+      "title": "fdsfdsf",
+      "author": "dsfsdf",
+      "isbn": "dfdsqf",
+      "lang": "cssdfd",
+      "category": "Security",
+      "id": 9
     }
   ]
 }
