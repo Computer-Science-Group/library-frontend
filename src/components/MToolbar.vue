@@ -2,7 +2,7 @@
   <v-toolbar
           flat
   >
-    <v-toolbar-title>{{ title }}</v-toolbar-title>
+    <slot><v-toolbar-title>{{ title }}</v-toolbar-title></slot>
     <v-text-field
             class="px-5"
             hide-details

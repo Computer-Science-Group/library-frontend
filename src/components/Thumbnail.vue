@@ -23,8 +23,16 @@
     props:['src'],
     data() {
       return {
-        uri: require(`@/assets/${this.src}`)
+
       }
+    },
+    computed: {
+      uri (){
+        return this.src ? require(`@/assets/${this.src}`) : null
+    }
+    },
+    created(){
+      console.log(this.src)
     }
 
   }

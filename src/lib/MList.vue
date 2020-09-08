@@ -5,7 +5,11 @@
       <MToolbar :title="title"
                 @filter="filter"
                 @addNew="newItem"
-      ></MToolbar>
+      >
+        <template >
+          <slot></slot>
+        </template>
+      </MToolbar>
     </v-card-title>
 
     <v-divider></v-divider>
@@ -24,12 +28,16 @@
           <span style="padding: 5px 15px;" > {{ item.lang }} </span>
         </template>
 
-        <template #item.actions="{item}" >
-          <Actions :item="item"
-                   @edit="editItem"
-                   @delete="deleteItem"
-          />
-        </template>
+
+          <template #item.actions="{item}" >
+            <slot name="actions" :item="item">
+            <Actions :item="item"
+                     @edit="editItem"
+                     @delete="deleteItem"
+            />
+            </slot>
+          </template>
+
       </v-data-table>
     </v-card-text>
   </v-card>

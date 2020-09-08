@@ -3,7 +3,7 @@
     <v-layout row>
       <v-flex class="col-12 col-md-6 offset-md-3">
 
-        <v-card >
+        <v-card v-if="user">
           <v-card-title>
             <v-avatar class="mr-4">
               <img

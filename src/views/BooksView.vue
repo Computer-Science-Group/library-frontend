@@ -7,6 +7,9 @@
          @editItem="editItem"
          @deleteItem="deleteItem"
   >
+    <template #actions="{item}">
+      {{item.id}}
+    </template>
   </MList>
 </template>
 
